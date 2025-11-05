@@ -1,0 +1,96 @@
+body {
+    font-family: 'Poppins', Segoe UI, Arial, sans-serif;
+    font-size: 16px;
+    background-color: #eef2f5;
+    color: #222;
+    margin: 20px;
+}
+
+#header img {
+  width: 100px;
+  border-radius: 10px;
+}
+
+header#header {
+  display: flex;
+  align-items: center; 
+  gap: 16px;           
+}
+
+
+.cabecalho-desc {
+  display: flex;
+  flex-direction: column; 
+  gap: 6px;               
+}
+
+.cabecalho-desc h1,
+.cabecalho-desc p {
+  margin: 0;
+}
+
+.cabecalho-desc h1 {
+  font-size: 1.25rem;
+  line-height: 1.1;
+}
+
+.cabecalho-desc p {
+  font-size: 0.95rem;
+  line-height: 1.2;
+  color: #666;
+}
+
+
+.links-cabecalho {
+  display: flex;
+  gap: 10px;          
+  margin-top: 4px;    
+}
+
+.links-cabecalho a {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.2rem;  
+  transition: color 0.2s ease;
+}
+
+.links-cabecalho a:hover {
+  color: #0077b5;     
+}
+
+
+#sobre {
+    text-align: justify;
+    width: 90%;
+    
+}
+
+.card-projetos {
+    width: 300px;
+    text-align: justify;
+    display: flex;
+    width: 1000px;
+}
+
+#projeto1 {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; 
+    padding: 20px;
+    margin: 20px;
+}
+
+#projeto2 {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; 
+    padding: 20px;
+    margin: 20px;
+}
+
+#projeto1:hover, #projeto2:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
