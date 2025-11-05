@@ -36,5 +36,5 @@ jobs:
               --account-name stivoryitpedro \
               --destination \$web \
               --source src/ \
-              --connection-string ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }} \
+              --connection-string "${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}" \
               --overwrite
