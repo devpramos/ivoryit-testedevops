@@ -1,0 +1,40 @@
+name: CI/CD Pipeline - Deploy to Azure
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-analyze-and-deploy:
+    name: Build, Analyze and Deploy
+    runs-on: ubuntu-latest 
+
+    steps:
+
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.projectKey=devpramos_ivoryit-testedevops
+            -Dsonar.organization=devpramos
+            -Dsonar.sources=src/
+
+      - name: Deploy to Azure Storage (Static Website)
+        uses: Azure/cli@v1
+        with:
+          inlineScript: |
+            az storage blob upload-batch \
+              --account-name stivoryitpedro \
+              --destination \$web \
+              --source src/ \
+              --connection-string ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }} \
+              --overwrite
